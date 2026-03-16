@@ -1,19 +1,24 @@
 # task logic
-
+from util import is_duplicate, valid_priority
 tasks = []
 
 def add_task(title,priority=None):
-    task_id = len(tasks) + 1
-    task = {
-        "id": task_id,
-        "title": title,
-        "completed": False
-    }
+    if not is_duplicate(tasks, title):
+        task_id = len(tasks) + 1
+        
+        task = {
+            "id": task_id,
+            "title": title,
+            "completed": False
+        }
 
-    # Add priority to task
-    if priority != None:
-        task["priority"] = priority
-    tasks.append(task)
+        # Add priority to task
+        if priority != None:
+            if valid_priority(priority):
+                task["priority"] = priority
+        tasks.append(task)
+    else:
+        print("Task already exists")
 
 
 def get_tasks():

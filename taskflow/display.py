@@ -5,8 +5,11 @@ def show_tasks(tasks):
         print("No tasks found")
         return
 
+    print("ID   STATUS   TASK")
+    print("-------------------------")
+
     for task in tasks:
 
-        status = "✓" if task["completed"] else " "
+        status = "✓" if task["completed"] else "✗"
 
-        print(f"[{status}] {task['id']} - {task['title']}")
+        print(f"{task['id']}    {status}       {task['title']}")
