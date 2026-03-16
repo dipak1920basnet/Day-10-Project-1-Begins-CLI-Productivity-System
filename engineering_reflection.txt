@@ -23,3 +23,21 @@ AI review:
     Key point you missed:
     Automation systems need commands because scripts can execute them programmatically.
     
+
+
+
+1️⃣1️⃣ Engineering Reflection - Day -12
+1️⃣ Why should configuration be separate from logic?
+=> Its a bad idea to hard code the file folder name
+2️⃣ Why is validation critical in real systems?
+=> without validation we might save data in wrong format. 
+3️⃣ Why do companies enforce automated tests?
+=> To ensure that the program is working properly
+=> to ensure that the program runs under many conditons
+like: 
+    what if user hits this instead of this and all 
+=> avoid crashing the program in future. 
+
+4️⃣ Why are logging systems essential for debugging?
+=> Track the system info. 
+=> track the changes. 
