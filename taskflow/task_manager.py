@@ -2,13 +2,17 @@
 
 tasks = []
 
-def add_task(title):
+def add_task(title,priority=None):
     task_id = len(tasks) + 1
     task = {
         "id": task_id,
         "title": title,
         "completed": False
     }
+
+    # Add priority to task
+    if priority != None:
+        task["priority"] = priority
     tasks.append(task)
 
 

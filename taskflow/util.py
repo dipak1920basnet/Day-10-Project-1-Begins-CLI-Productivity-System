@@ -10,3 +10,9 @@ def valid_priority(priority:str):
     if priority.lower() not in ["high","medium","low"]:
         return False
     return True
+
+def sort_task(tasks):
+    return tasks.sort(key=lambda x:x["completed"])
+
+def search_key_word(tasks, keyword):
+    ...

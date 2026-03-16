@@ -2,7 +2,7 @@
 from task_manager import add_task, get_tasks, complete_task, delete_task, tasks
 from storage import save_tasks, load_tasks
 from display import show_tasks
-from util import is_duplicate, valid_priority
+from util import is_duplicate, valid_priority, sort_task
 
 def menu():
 
@@ -11,7 +11,8 @@ def menu():
     print("2. View Tasks")
     print("3. Complete Task")
     print("4. Delete Task")
-    print("5. Exit")
+    print("5. Sort Task")
+    print("6. Exit")
 
 
 def main():
@@ -61,8 +62,9 @@ def main():
 
             task_id = int(input("Enter task ID: "))
             delete_task(task_id)
-
         elif choice == "5":
+            sort_task(tasks)
+        elif choice == "6":
 
             save_tasks(tasks)
             print("Tasks saved.")
