@@ -1,0 +1,24 @@
+1️⃣ Why are CLI tools better than menu systems?
+=> more friendly ui. 
+=> works with few commands. 
+=> less time consuming. 
+
+personal thought: one takeback is that we need to know what command to use. 
+
+2️⃣ Why is logging important in real software?
+=> keeping track of the current state of our program 
+=> leave message for future or our fellow colleague
+=> insight for future enhancement or debug 
+
+3️⃣ Why should programs fail gracefully instead of crashing?
+=> A crash shows bad build of a program. 
+=> Tells user what happend instead of confusing them. 
+=> User might think if they did something wrong with crashing but failing with avoid that. 
+=> avoid data loss. 
+
+4️⃣ Why does automation prefer command-based tools?
+Easier to work with once we remember the command. 
+
+AI review: 
+    Key point you missed:
+    Automation systems need commands because scripts can execute them programmatically.

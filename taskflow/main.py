@@ -17,7 +17,9 @@ parser.add_argument("priority", nargs="?")
 args = parser.parse_args()
 
 if args.command == "add":
-    print(args)
+    if args.value is None:
+        print("Please provide task title")
+    # print(args)
     add_task(args.value, args.priority)
     log_action("Task added")
 

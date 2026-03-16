@@ -1,0 +1,5 @@
+program crashes with the command python main.py add
+fix:: 
+    defensive coding with: 
+        if args.value is None:
+            print("Please provide task title")
