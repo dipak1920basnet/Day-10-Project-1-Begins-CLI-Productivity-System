@@ -1,10 +1,11 @@
 # save/load data
 import json
+from taskflow.config import DATA_FILE
 
 
 def save_tasks(tasks):
 
-    with open("data/tasks.json", "w") as f:
+    with open(DATA_FILE, "w") as f:
         json.dump(tasks, f)
 
 

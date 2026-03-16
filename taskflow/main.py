@@ -1,10 +1,16 @@
 # program contorller
 import argparse
-from logger import log_action
-from task_manager import add_task, get_tasks, complete_task, delete_task, tasks
-from storage import save_tasks, load_tasks
-from display import show_tasks, print_stat
-from util import is_duplicate, valid_priority, sort_task, search_key_word, stats
+from taskflow.logger import log_action
+from taskflow.task_manager import add_task, get_tasks, complete_task, delete_task, tasks
+from taskflow.storage import save_tasks, load_tasks
+from taskflow.display import show_tasks, print_stat
+from taskflow.util import (
+    is_duplicate,
+    valid_priority,
+    sort_task,
+    search_key_word,
+    stats,
+)
 
 tasks.extend(load_tasks())
 
@@ -20,8 +26,12 @@ if args.command == "add":
     if args.value is None:
         print("Please provide task title")
     # print(args)
-    add_task(args.value, args.priority)
-    log_action("Task added")
+    try:
+        add_task(args.value, args.priority)
+    except ValueError as e:
+        print("Error:", e)
+    else:
+        log_action("Task added")
 
 elif args.command == "list":
     show_tasks(get_tasks())
@@ -40,8 +50,8 @@ elif args.command == "delete":
 
 elif args.command == "search":
     print(args)
-    print("value:: ",args.value)
-    show_tasks(search_key_word(tasks,args.value))
+    print("value:: ", args.value)
+    show_tasks(search_key_word(tasks, args.value))
 elif args.command == "stats":
     data = stats(tasks)
     print_stat(data)
@@ -52,20 +62,6 @@ elif args.command == "clear":
 
 if args.command != "clear":
     save_tasks(tasks)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # def menu():

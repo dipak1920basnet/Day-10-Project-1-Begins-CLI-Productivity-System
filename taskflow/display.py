@@ -15,6 +15,6 @@ def show_tasks(tasks):
         print(f"{task['id']}    {status}       {task['title']}")
 
 
-def print_stat(stat_data:dict):
-    for key,value in stat_data.items():
+def print_stat(stat_data: dict):
+    for key, value in stat_data.items():
         print(f"{key} : {value}")
