@@ -3,8 +3,8 @@ import argparse
 from logger import log_action
 from task_manager import add_task, get_tasks, complete_task, delete_task, tasks
 from storage import save_tasks, load_tasks
-from display import show_tasks
-from util import is_duplicate, valid_priority, sort_task, search_key_word
+from display import show_tasks, print_stat
+from util import is_duplicate, valid_priority, sort_task, search_key_word, stats
 
 tasks.extend(load_tasks())
 
@@ -40,8 +40,16 @@ elif args.command == "search":
     print(args)
     print("value:: ",args.value)
     show_tasks(search_key_word(tasks,args.value))
+elif args.command == "stats":
+    data = stats(tasks)
+    print_stat(data)
 
-save_tasks(tasks)
+elif args.command == "clear":
+    tasking = []
+    save_tasks(tasking)
+
+if args.command != "clear":
+    save_tasks(tasks)
 
 
 

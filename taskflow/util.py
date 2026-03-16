@@ -24,3 +24,21 @@ def search_key_word(tasks, keyword):
             found.append(i)
     return found
 
+def stats(tasks):
+    total_task = 0
+    completed = 0
+    remaining = 0
+    for i in tasks:
+        total_task += 1
+        if i["completed"] == False:
+            remaining +=1
+        else:
+            completed +=1
+    
+    data = {
+                "Total tasks": total_task,
+                "Completed":completed,
+                "Remaining":remaining,
+                "Completion Rate": f"{(completed/total_task)*100}%"
+            }
+    return data
