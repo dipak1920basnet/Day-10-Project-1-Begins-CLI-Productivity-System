@@ -1,0 +1,14 @@
+1️⃣ Why is storage separated from logic?
+=> maintainability, reusability, security, scalability. 
+
+2️⃣ Why does display.py not modify tasks?
+=> This program is multimodulr architecture so here we use display.py for UI components only. 
+
+3️⃣ Why does task_manager.py avoid input()?
+=> task_manager is for the core logic of the program 
+
+4️⃣ What advantages does this architecture give?
+=> multi-modular form of program. 
+=> Easier to trace state 
+=> seperate file to transform
+=> seperate file for storage
