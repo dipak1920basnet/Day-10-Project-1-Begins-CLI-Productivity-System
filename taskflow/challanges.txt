@@ -3,3 +3,7 @@ Do not allow same title twice.
 
 Challenge 2 — Add Task Priority
 Challenge 3 — Sort Tasks by Status Incomplete first.
+
+Challenge 4 — Add Search Feature
+
+Search tasks by keyword.

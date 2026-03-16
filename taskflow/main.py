@@ -2,7 +2,7 @@
 from task_manager import add_task, get_tasks, complete_task, delete_task, tasks
 from storage import save_tasks, load_tasks
 from display import show_tasks
-from util import is_duplicate, valid_priority, sort_task
+from util import is_duplicate, valid_priority, sort_task, search_key_word
 
 def menu():
 
@@ -12,7 +12,8 @@ def menu():
     print("3. Complete Task")
     print("4. Delete Task")
     print("5. Sort Task")
-    print("6. Exit")
+    print("6. Search by keyword")
+    print("7. Exit")
 
 
 def main():
@@ -62,9 +63,20 @@ def main():
 
             task_id = int(input("Enter task ID: "))
             delete_task(task_id)
+
         elif choice == "5":
             sort_task(tasks)
+
         elif choice == "6":
+            key_word = input("Enter keyword: ")
+            # print(tasks)
+            found = search_key_word(tasks, key_word)
+            if found:
+                for i in found:
+                    print(i)
+            else:
+                print("Keyword not found")
+        elif choice == "7":
 
             save_tasks(tasks)
             print("Tasks saved.")

@@ -11,8 +11,15 @@ def valid_priority(priority:str):
         return False
     return True
 
+# sort task by status incomplete first
 def sort_task(tasks):
     return tasks.sort(key=lambda x:x["completed"])
 
+# search task by keyword
 def search_key_word(tasks, keyword):
-    ...
+    found = []
+    # print(tasks)
+    for i in tasks:
+        if keyword in i["title"]:
+            found.append(i)
+    return found
