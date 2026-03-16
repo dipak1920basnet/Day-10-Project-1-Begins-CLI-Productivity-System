@@ -2,7 +2,7 @@
 from task_manager import add_task, get_tasks, complete_task, delete_task, tasks
 from storage import save_tasks, load_tasks
 from display import show_tasks
-
+from util import is_duplicate, valid_priority
 
 def menu():
 
@@ -27,7 +27,26 @@ def main():
         if choice == "1":
 
             title = input("Enter task: ")
-            add_task(title)
+
+            # prevent duplicate tasks
+            if not is_duplicate(tasks, title):
+                while True:
+                    print("Priority Order")
+                    print("High")
+                    print("Medium")
+                    print("Low")
+                    print("Exit")
+                    print("Enter Exit to save without priority")
+                    priority = input("Enter task priority:")
+
+                    if valid_priority(priority) or priority.lower() == "exit":
+                        break
+                    print("Priority must be from one of the priority order")
+                if priority == "exit":
+                    priority = None
+                add_task(title, priority)
+            else:
+                print("Task already exists")
 
         elif choice == "2":
 
