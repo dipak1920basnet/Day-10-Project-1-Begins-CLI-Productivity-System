@@ -1,4 +1,4 @@
-from taskflow.config import MAX_TASK_LENGTH
+from config import MAX_TASK_LENGTH
 
 
 def validate_task_title(title):

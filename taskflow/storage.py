@@ -1,6 +1,6 @@
 # save/load data
 import json
-from taskflow.config import DATA_FILE
+from config import DATA_FILE
 
 
 def save_tasks(tasks):

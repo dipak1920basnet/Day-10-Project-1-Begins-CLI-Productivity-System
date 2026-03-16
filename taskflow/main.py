@@ -1,10 +1,10 @@
 # program contorller
 import argparse
-from taskflow.logger import log_action
-from taskflow.task_manager import add_task, get_tasks, complete_task, delete_task, tasks
-from taskflow.storage import save_tasks, load_tasks
-from taskflow.display import show_tasks, print_stat
-from taskflow.util import (
+from logger import log_action
+from task_manager import add_task, get_tasks, complete_task, delete_task, tasks
+from storage import save_tasks, load_tasks
+from display import show_tasks, print_stat
+from util import (
     is_duplicate,
     valid_priority,
     sort_task,
@@ -19,6 +19,7 @@ parser = argparse.ArgumentParser(description="TaskFlow - CLI Productivity Manage
 parser.add_argument("command")
 parser.add_argument("value", nargs="?")
 parser.add_argument("priority", nargs="?")
+parser.add_argument("due_date",nargs="?")
 
 args = parser.parse_args()
 
@@ -27,7 +28,7 @@ if args.command == "add":
         print("Please provide task title")
     # print(args)
     try:
-        add_task(args.value, args.priority)
+        add_task(args.value, args.priority, args.due_date)
     except ValueError as e:
         print("Error:", e)
     else:
@@ -56,12 +57,23 @@ elif args.command == "stats":
     data = stats(tasks)
     print_stat(data)
 
+elif args.command == "sort":
+    sort_task(tasks, args.value)
+    log_action(f"Sorted by {args.value}")
+
+elif args.command == "export":
+    pass
+
 elif args.command == "clear":
     tasking = []
     save_tasks(tasking)
 
+
+
 if args.command != "clear":
     save_tasks(tasks)
+
+
 
 
 # def menu():

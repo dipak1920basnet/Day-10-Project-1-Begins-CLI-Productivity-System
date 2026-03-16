@@ -1,5 +1,5 @@
 import logging
-from taskflow.config import LOG_FILE
+from config import LOG_FILE
 
 
 logging.basicConfig(

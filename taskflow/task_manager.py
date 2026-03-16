@@ -1,18 +1,23 @@
 # task logic
-from taskflow.util import is_duplicate, valid_priority
-from taskflow.validatory import validate_task_title
+from util import is_duplicate, valid_priority
+from validatory import validate_task_title
 
 tasks = []
 
 
-def add_task(title, priority=None):
+def add_task(title, priority=None, date=None):
 
     validate_task_title(title)
 
     if not is_duplicate(tasks, title):
         task_id = len(tasks) + 1
 
-        task = {"id": task_id, "title": title, "completed": False}
+        task = {
+                "id": task_id, 
+                "title": title, 
+                "completed": False,
+                "due_date":date
+                }
 
         # Add priority to task
         if priority != None:
