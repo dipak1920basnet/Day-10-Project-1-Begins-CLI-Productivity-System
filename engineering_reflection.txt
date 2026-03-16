@@ -22,3 +22,4 @@ Easier to work with once we remember the command.
 AI review: 
     Key point you missed:
     Automation systems need commands because scripts can execute them programmatically.
+    
